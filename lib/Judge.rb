@@ -20,8 +20,6 @@ class Judge
           temp_secret.delete_at(index)
        end 
      end
-
-
     end 
   end
 end
