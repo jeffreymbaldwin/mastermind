@@ -5,8 +5,7 @@ require_relative 'codemaker'
 class Game
   def initialize
     @codemaker = CodeMaker.new
-    @breaker
-    @humanbreaker
+    @breaker = HumanBreaker.new
     @judge = Judge.new
     @turn = 1
     @history = []

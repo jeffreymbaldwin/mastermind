@@ -1,6 +1,3 @@
-
-
-
 class CodeMaker
   attr_reader :secret
   
