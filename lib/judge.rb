@@ -23,7 +23,7 @@ class Judge
       end 
     end 
 
-    feedback = {black: black, white: white}
+    {black: black, white: white}
     
   end
 end
