@@ -1,5 +1,6 @@
 require_relative 'judge'
 require_relative 'codemaker'
+require_relative 'humanbreaker'
 
 
 class Game
@@ -7,16 +8,18 @@ class Game
     @codemaker = CodeMaker.new
     @breaker = HumanBreaker.new
     @judge = Judge.new
+    @secret = @codemaker.secret
     @turn = 1
     @history = []
   end
 
   def play
-    @secret = @codemaker.secret
+    guess = @breaker.get_guess
+    feedback = @judge.evaluate(@secret, guess)
+    @history << [guess, feedback]
+    #play around code
+    puts @history
     #loop until the game is done method
-      #ask breaker for guess
-      #ask judge to evaulate
-      #store result
       #render
       #increment turn
   end

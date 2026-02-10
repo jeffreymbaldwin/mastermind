@@ -6,15 +6,15 @@ class HumanBreaker
   def get_guess
 
     puts "Enter your 4 letter guess."
-    input = gets.chomp.upcase
+    guess = gets.chomp.upcase
 
-    until input.match?(/^[A-F]{4}$/)
+    until guess.match?(/\A[A-F]{4}\z/)
       puts "Invalid input. Be sure to only enter 4 letters between A-F."
-      input = gets.chomp.upcase
+      guess = gets.chomp.upcase
 
     end
 
-    input.chars
+    guess.chars
     
   end
 end
