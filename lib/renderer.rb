@@ -1,16 +1,29 @@
 class Renderer
-  def render(board)
+  def render()
     
   end
 
+  def separator
+    puts "-" * 35
+  end
+
+  def legend
+    puts "Legend:
+    A = ◆   B = ▲   C = ■   D = ★   E = ✚   F = ✖
+    ● = correct position
+    ○ = correct symbol, wrong position"
+  end
 end
 
+example = Renderer.new
+example.legend
+example.separator
 
 
 
-#Render Legend
-#Render Full Hisotry table
-  #all previous rounds
-  #blank line after board
-  #single separator before input
-#Render end-of-game screens (win/lose/reveal code)
+
+#3 methods
+  #render board (history)
+  #render legend
+  #render separator
+  #guess from breaker (called by game)
