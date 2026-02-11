@@ -1,6 +1,7 @@
 require_relative 'judge'
 require_relative 'codemaker'
 require_relative 'humanbreaker'
+require_relative 'renderer'
 
 
 class Game
@@ -20,7 +21,7 @@ class Game
     feedback = @judge.evaluate(@secret, guess)
     @history << [guess, feedback]
     pp feedback #render the board (include turn order? Where is turn order gonna live)
-      if feedback[:black] == 4
+      if feedback[:exact] == 4
         puts "You win! Good job!"
         break
       elsif @turn == 12
