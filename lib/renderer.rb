@@ -1,7 +1,8 @@
 class Renderer
-  def render()
-    
-  end
+  def render_header
+    puts "Turn | Guess         | Feedback"
+    separator
+  end 
 
   def separator
     puts "-" * 35
@@ -16,8 +17,10 @@ class Renderer
 end
 
 example = Renderer.new
+example.render_header
 example.legend
 example.separator
+
 
 
 
