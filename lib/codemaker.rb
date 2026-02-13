@@ -16,3 +16,6 @@ end
     #while @secret.length < 4
       #choice = options.sample
       #@secret << choice
+      #
+      #
+

@@ -9,6 +9,7 @@ class Game
     @codemaker = CodeMaker.new
     @breaker = HumanBreaker.new
     @judge = Judge.new
+    @renderer = Renderer.new
     @secret = @codemaker.secret
     puts @secret
     @turn = 1
@@ -16,11 +17,13 @@ class Game
   end
 
   def play
+    @renderer.render_header
     loop do
+    @renderer.legend
     guess = @breaker.get_guess
     feedback = @judge.evaluate(@secret, guess)
     @history << [guess, feedback]
-    pp feedback #render the board (include turn order? Where is turn order gonna live)
+    @renderer.render_history(@history)
       if feedback[:exact] == 4
         puts "You win! Good job!"
         break
