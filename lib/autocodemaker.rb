@@ -1,4 +1,4 @@
-class CodeMaker
+class Autocodemaker
   attr_reader :secret
   
   def initialize

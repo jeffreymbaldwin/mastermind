@@ -1,7 +1,4 @@
 class HumanBreaker
-  def initialize
-    
-  end
 
   def get_guess
 
