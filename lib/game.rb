@@ -62,3 +62,10 @@ class Game
 
 end
 
+#notes for next time:
+#implement the loop do above
+#check the naming conventions on what is camelcase what is _. 
+  #can never remember it. 
+
+#implement human code input 
+#implement computer breaker AI
