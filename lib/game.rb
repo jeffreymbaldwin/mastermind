@@ -6,17 +6,22 @@ require_relative 'renderer'
 
 class Game
   def initialize
-    @codemaker = CodeMaker.new
-    @breaker = HumanBreaker.new
     @judge = Judge.new
     @renderer = Renderer.new
-    @secret = @codemaker.secret
-    puts @secret
     @turn = 1
     @history = []
   end
 
   def play
+    setup_roles
+    play_loop  
+  end
+
+  def setup_roles
+    
+  end
+
+  def play_loop
     @renderer.render_header
     @renderer.legend
     loop do

@@ -51,10 +51,3 @@ SYMBOLS = { "A"=>"◆", "B"=>"▲", "C"=>"■", "D"=>"★", "E"=>"✚", "F"=>"�
 
 end
 
-# example = Renderer.new
-# history = [
-#   ["ABCD", { exact: 2, partial: 1 }],
-#   ["AFFF", { exact: 1, partial: 0 }]
-# ]
-
-# example.render_history(history)

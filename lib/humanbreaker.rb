@@ -19,7 +19,3 @@ class HumanBreaker
   end
 end
 
-#ask user for guess string
-#vaildate it (length 4 A-F)
-#convert to the interal array format ["A", "C", "F", "B"]
-#return that to Game
