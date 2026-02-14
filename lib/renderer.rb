@@ -4,7 +4,6 @@ SYMBOLS = { "A"=>"◆", "B"=>"▲", "C"=>"■", "D"=>"★", "E"=>"✚", "F"=>"�
 
   def render_history(history)
     render_header
-
     history.each_with_index do |(guess, feedback), idx|
       turn = idx + 1
       guess_str = format_guess(guess)
@@ -24,6 +23,12 @@ SYMBOLS = { "A"=>"◆", "B"=>"▲", "C"=>"■", "D"=>"★", "E"=>"✚", "F"=>"�
     A = ◆   B = ▲   C = ■   D = ★   E = ✚   F = ✖
     ● = correct position
     ○ = correct symbol, wrong position"
+  end
+
+  def render_turn(history)
+    render_history(history)
+    legend
+    separator
   end
   
   private

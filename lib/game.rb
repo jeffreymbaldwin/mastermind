@@ -18,12 +18,12 @@ class Game
 
   def play
     @renderer.render_header
-    loop do
     @renderer.legend
+    loop do
     guess = @breaker.get_guess
     feedback = @judge.evaluate(@secret, guess)
     @history << [guess, feedback]
-    @renderer.render_history(@history)
+    @renderer.render_turn(@history)
       if feedback[:exact] == 4
         puts "You win! Good job!"
         break
