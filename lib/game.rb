@@ -29,11 +29,14 @@ class Game
       when "1"
         #breaker setup
         @codemaker = ComputerCodeMaker.new
+        @codemaker.make_code
         @breaker = HumanBreaker.new
         break
       when "2"
         #maker setup
         @codemaker = HumanCodeMaker.new
+        @renderer.legend
+        @codemaker.make_code
         @breaker = ComputerBreaker.new
         break
       else
