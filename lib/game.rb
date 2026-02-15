@@ -35,7 +35,7 @@ class Game
       when "2"
         #maker setup
         @codemaker = HumanCodeMaker.new
-        @renderer.legend
+        @renderer.render_symbol_legend
         @codemaker.make_code
         @breaker = ComputerBreaker.new
         break
@@ -47,7 +47,8 @@ class Game
   end
 
   def play_loop
-    @renderer.legend
+    @renderer.render_symbol_legend
+    @renderer.render_peg_legend
     loop do
       guess = @breaker.get_guess
       feedback = @judge.evaluate(@secret, guess)

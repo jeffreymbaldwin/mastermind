@@ -18,16 +18,20 @@ SYMBOLS = { "A"=>"◆", "B"=>"▲", "C"=>"■", "D"=>"★", "E"=>"✚", "F"=>"�
     separator
   end 
 
-  def legend
+  def render_symbol_legend
     puts "Legend:
-    A = ◆   B = ▲   C = ■   D = ★   E = ✚   F = ✖
-    ● = correct position
-    ○ = correct symbol, wrong position"
+A = ◆   B = ▲   C = ■   D = ★   E = ✚   F = ✖"    
+  end
+
+  def render_peg_legend
+    puts "● = correct position
+○ = correct symbol, wrong position"
   end
 
   def render_turn(history)
     render_history(history)
-    legend
+    render_symbol_legend
+    render_peg_legend
     separator
   end
   
