@@ -1,15 +1,15 @@
 require_relative 'judge'
-require_relative 'autocodemaker'
-require_relative 'humanbreaker'
+require_relative 'computer_code_maker'
+require_relative 'human_breaker'
 require_relative 'renderer'
-require_relative 'computerbreaker'
-require_relative 'humancodemaker'
+require_relative 'computer_breaker'
+require_relative 'human_code_maker'
 
 class Game
+  MAX_TURNS = 11
   def initialize
     @judge = Judge.new
     @renderer = Renderer.new
-    @turn = 1
     @history = []
   end
 
@@ -21,40 +21,41 @@ class Game
   #this needs to be loop do
   def setup_roles 
     puts "Choose your role. Enter 1 or 2. 
-    1 = Try to break the code within 12 rounds
-    2 = Try to create a code the computer cannot solve in 12 rounds"
-    role = gets.chomp
-    case role
-    when "1"
-      #breaker setup
-      @codemaker = Autocodemaker.new
-      @breaker = HumanBreaker.new
-    when "2"
-      #maker setup
-      @codemaker = Humancodemaker.new
-      @breaker = ComputerBreaker.new
-    else
-      puts "Invalid input"
+  1 = Try to break the code within 12 rounds
+  2 = Try to create a code the computer cannot solve in 12 rounds"
+    loop do
+      role = gets.chomp
+      case role
+      when "1"
+        #breaker setup
+        @codemaker = ComputerCodeMaker.new
+        @breaker = HumanBreaker.new
+        break
+      when "2"
+        #maker setup
+        @codemaker = HumanCodeMaker.new
+        @breaker = ComputerBreaker.new
+        break
+      else
+        puts "Invalid input. Try again. Enter 1 or 2. "
+      end
     end
     @secret = @codemaker.secret
   end
 
   def play_loop
-    @renderer.render_header
     @renderer.legend
     loop do
-    guess = @breaker.get_guess
-    feedback = @judge.evaluate(@secret, guess)
-    @history << [guess, feedback]
-    @renderer.render_turn(@history)
+      guess = @breaker.get_guess
+      feedback = @judge.evaluate(@secret, guess)
+      @history << [guess, feedback]
+      @renderer.render_turn(@history)
       if feedback[:exact] == 4
         puts "You win! Good job!"
         break
-      elsif @turn == 12
+      elsif @history.length == 12
         puts "You are out of turns. You lose!"
-        break   
-      else 
-        @turn += 1 
+        break  
       end
     end 
   end
@@ -62,10 +63,3 @@ class Game
 
 end
 
-#notes for next time:
-#implement the loop do above
-#check the naming conventions on what is camelcase what is _. 
-  #can never remember it. 
-
-#implement human code input 
-#implement computer breaker AI

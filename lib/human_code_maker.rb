@@ -1,4 +1,4 @@
-class Humancodemaker
+class HumanCodeMaker
   attr_reader :secret
 
 
