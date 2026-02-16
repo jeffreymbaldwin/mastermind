@@ -34,7 +34,14 @@ A = ◆   B = ▲   C = ■   D = ★   E = ✚   F = ✖"
     render_peg_legend
     separator
   end
-  
+
+  def render_win
+    puts "You win! Good job!"
+  end
+
+  def render_lose
+    puts "You lose. Better luck next time!"
+  end
   private
 
   def separator

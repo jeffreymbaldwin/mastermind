@@ -5,7 +5,8 @@ game = Game.new
 game.play
 
 #notes for next time:
-#figure out what to do with legend. Do I need the symbols
-#for human breaker? Currently I get the pegs too
+#When the player is the breaker, the message is you lose
+#if the player is the codemaker, the message is still you lose after 12 turns
+#need to change the message at the end of the game. 
 #ComputerBreaker AI logic
 #

@@ -6,7 +6,7 @@ require_relative 'computer_breaker'
 require_relative 'human_code_maker'
 
 class Game
-  MAX_TURNS = 11
+  MAX_TURNS = 12
   def initialize
     @judge = Judge.new
     @renderer = Renderer.new
@@ -31,6 +31,7 @@ class Game
         @codemaker = ComputerCodeMaker.new
         @codemaker.make_code
         @breaker = HumanBreaker.new
+        @human_role = :breaker
         break
       when "2"
         #maker setup
@@ -38,15 +39,18 @@ class Game
         @renderer.render_symbol_legend
         @codemaker.make_code
         @breaker = ComputerBreaker.new
+        @human_role = :codemaker
         break
       else
         puts "Invalid input. Try again. Enter 1 or 2. "
       end
     end
+    #put the flag here 
     @secret = @codemaker.secret
   end
 
   def play_loop
+    winner_role = nil
     @renderer.render_symbol_legend
     @renderer.render_peg_legend
     loop do
@@ -55,14 +59,22 @@ class Game
       @history << [guess, feedback]
       @renderer.render_turn(@history)
       if feedback[:exact] == 4
-        puts "You win! Good job!"
+        winner_role = :breaker
         break
-      elsif @history.length == 12
-        puts "You are out of turns. You lose!"
+      elsif @history.length == MAX_TURNS
+        winner_role = :codemaker
         break  
       end
     end 
+
+    if winner_role == @human_role
+      @renderer.render_win
+    else 
+      @renderer.render_lose
+    end
   end
+
+  
 
 
 end
