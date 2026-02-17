@@ -4,9 +4,8 @@ game = Game.new
 
 game.play
 
-#notes for next time:
-#When the player is the breaker, the message is you lose
-#if the player is the codemaker, the message is still you lose after 12 turns
-#need to change the message at the end of the game. 
 #ComputerBreaker AI logic
-#
+# think about %w and changing them throughout the code. 
+# thing about .freeze throughout the code
+# Think about centralizing the OPTIONS in the 
+# codemaker\codebreaker files. give it to Game.rb?
