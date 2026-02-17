@@ -4,9 +4,7 @@ game = Game.new
 
 game.play
 
-#symbols namespace
 #ComputerBreaker AI logic
-# think about %w and changing them throughout the code. 
+# think about %w and changing them throughout the code. ( did some of this)
 # thing about .freeze throughout the code
-# Think about centralizing the OPTIONS in the 
 # codemaker\codebreaker files. give it to Game.rb?
