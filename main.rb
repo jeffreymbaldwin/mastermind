@@ -4,6 +4,7 @@ game = Game.new
 
 game.play
 
+#symbols namespace
 #ComputerBreaker AI logic
 # think about %w and changing them throughout the code. 
 # thing about .freeze throughout the code

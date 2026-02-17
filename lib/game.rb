@@ -56,8 +56,14 @@ class Game
     loop do
       guess = @breaker.get_guess
       feedback = @judge.evaluate(@secret, guess)
+
+      if @breaker.respond_to?(:receive_feedback)
+        @breaker.receive_feedback(guess, feedback)
+      end
+      
       @history << [guess, feedback]
       @renderer.render_turn(@history)
+
       if feedback[:exact] == 4
         winner_role = :breaker
         break
@@ -65,6 +71,7 @@ class Game
         winner_role = :codemaker
         break  
       end
+      
     end 
 
     if winner_role == @human_role
