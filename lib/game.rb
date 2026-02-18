@@ -18,7 +18,6 @@ class Game
     play_loop  
   end
 
-  #this needs to be loop do
   def setup_roles 
     puts "Choose your role. Enter 1 or 2. 
   1 = Try to break the code within 12 rounds
@@ -27,14 +26,12 @@ class Game
       role = gets.chomp
       case role
       when "1"
-        #breaker setup
         @codemaker = ComputerCodeMaker.new
         @codemaker.make_code
         @breaker = HumanBreaker.new
         @human_role = :breaker
         break
       when "2"
-        #maker setup
         @codemaker = HumanCodeMaker.new
         @renderer.render_symbol_legend
         @codemaker.make_code
@@ -45,7 +42,6 @@ class Game
         puts "Invalid input. Try again. Enter 1 or 2. "
       end
     end
-    #put the flag here 
     @secret = @codemaker.secret
   end
 
@@ -71,7 +67,7 @@ class Game
         winner_role = :codemaker
         break  
       end
-      
+
     end 
 
     if winner_role == @human_role
